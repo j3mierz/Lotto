@@ -2,7 +2,9 @@ from random import randint
 
 
 def wining_ticket_generator():
-    return tuple([randint(1, 49) for _ in range(6)])
+    win_ticket = [randint(1, 49) for _ in range(6)]
+    print(win_ticket)
+    return win_ticket
 
 
 def player_ticket_generator():
@@ -20,7 +22,15 @@ def player_ticket_generator():
             print('this number is already in ticket.')
             continue
         player_ticket.append(player_number)
-    return sorted(player_ticket)
+    player_ticket.sort()
+    print(player_ticket)
+    return player_ticket
 
 
-print(player_ticket_generator())
+def game():
+    player_ticket = set(player_ticket_generator())
+    win_ticket = set(wining_ticket_generator())
+    print(f'you guessed {len(player_ticket & win_ticket)} numbers')
+
+
+game()
