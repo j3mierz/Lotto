@@ -1,12 +1,14 @@
 from random import randint
 
 
+# function generates 6 wining numbers from range 1 to 49
 def wining_ticket_generator():
     win_ticket = [randint(1, 49) for _ in range(6)]
     print(win_ticket)
     return win_ticket
 
 
+# functions asks user for 6 numbers
 def player_ticket_generator():
     player_ticket = []
     while len(player_ticket) < 6:
@@ -27,6 +29,7 @@ def player_ticket_generator():
     return player_ticket
 
 
+# function uses funtcions: player_ticket_generator and wining_ticket_geerator and makes diff on both sets
 def game():
     player_ticket = set(player_ticket_generator())
     win_ticket = set(wining_ticket_generator())
